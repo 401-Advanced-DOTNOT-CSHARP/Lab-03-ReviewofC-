@@ -55,5 +55,26 @@ namespace Lab03ChallengeTesting
             decimal results = Challenge2(numbersArray);
             Assert.Equal(average, results);
         }
+        [Theory]
+        [InlineData(new int[] {5, 4, 3, 3, 2, 1, 8, 7, 3, 2, 2, 2, 3}, 3)]
+        [InlineData(new int[] {1, 1, 2, 3, 4}, 1)]
+        [InlineData(new int[] {2, 2, 2, 2, 2, 2, 2, 2, 2}, 2)]
+        [InlineData(new int[] {1, 2, 3, 4, 5, 6}, 1)]
+        [InlineData(new int[] { 2, 2, 2, 2, 3, 3, 3, 3}, 2)]
+
+
+
+
+        public void Challenge4DifferentSizeArrays(int[] numbersArray, int finalNumber)
+        {
+            //Arrange
+
+
+            //Act
+            int results = Challenge4(numbersArray);
+
+            //Assert
+            Assert.Equal(finalNumber, results);
+        }
     }
 }

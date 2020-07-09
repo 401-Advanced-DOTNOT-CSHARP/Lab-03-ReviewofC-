@@ -8,8 +8,8 @@ namespace Lab_03_SystemIO
         {
             try
             {
-            //Challenge1("1 2 3");
-            //Challenge2Console();
+            Challenge1("1 2 3");
+            Challenge2Console();
                Challenge3();
 
             }
@@ -102,6 +102,32 @@ namespace Lab_03_SystemIO
             Console.WriteLine("    *");
 
 
+        }
+        public static int Challenge4(int[] numbersArray)
+        {
+            int count = 0;
+            int leadCount = 0;
+            int leadNumber = numbersArray[0];
+            int numberCounted = numbersArray[0];
+            for (int i = 0; i < numbersArray.Length; i++)
+            {
+                count = 0;
+                for (int j = 0; j < numbersArray.Length; j++)
+                {
+
+                if(numbersArray[i] == numbersArray[j])
+                {
+                    count += 1;
+                    numberCounted = numbersArray[i];
+                }
+                }
+                if(leadCount < count)
+                {
+                    leadNumber = numberCounted;
+                    leadCount = count;
+                }
+            }
+            return leadNumber;
         }
 
     }
