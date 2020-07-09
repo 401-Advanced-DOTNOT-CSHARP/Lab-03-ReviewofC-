@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 
 namespace Lab_03_SystemIO
 {
@@ -8,9 +9,15 @@ namespace Lab_03_SystemIO
         {
             try
             {
+                /*
             Challenge1("1 2 3");
             Challenge2Console();
                Challenge3();
+                Challenge4(new int[] {1, 1, 2, 3, 4, 2, 3, 2});
+                Challenge5(new int[] {10, 15, 5, -9, 30});
+                */
+                Challenge6();
+
 
             }
             catch (Exception e)
@@ -48,7 +55,7 @@ namespace Lab_03_SystemIO
         }
         public static void Challenge2Console()
         {
-            Console.WriteLine("Please input a number betwwen 1 and 10");
+            Console.WriteLine("Please input a number betwwen 2 and 10");
             string userNumbers = Console.ReadLine();
             if(!int.TryParse(userNumbers, out int result))
             {
@@ -61,9 +68,9 @@ namespace Lab_03_SystemIO
             else
             {
             int[] numbersArray = new int[result];
-            for (int i = 1; i <= result; i++)
+            for (int i = 0; i < result; i++)
             {
-                Console.WriteLine($"Please enter a number {i}/{result}");
+                Console.WriteLine($"Please enter a number {i+1}/{result}");
                 string newNumber = Console.ReadLine();
                     if(int.TryParse(newNumber, out int results))
                     {
@@ -128,6 +135,26 @@ namespace Lab_03_SystemIO
                 }
             }
             return leadNumber;
+        }
+        public static int Challenge5(int[] numbersArray)
+        {
+            int largeNumber = numbersArray[0];
+            for (int i = 0; i < numbersArray.Length; i++)
+            {
+                if(numbersArray[i] > largeNumber)
+                {
+                    largeNumber = numbersArray[i];
+                }
+            }
+            return largeNumber;
+
+        }
+        static void Challenge6()
+        {
+            Console.WriteLine("What word would you like to save?");
+            string word = Console.ReadLine();
+            string path = "../../Test.txt";
+            File.WriteAllText(path, word);
         }
 
     }

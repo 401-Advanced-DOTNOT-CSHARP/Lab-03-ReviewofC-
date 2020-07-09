@@ -62,9 +62,6 @@ namespace Lab03ChallengeTesting
         [InlineData(new int[] {1, 2, 3, 4, 5, 6}, 1)]
         [InlineData(new int[] { 2, 2, 2, 2, 3, 3, 3, 3}, 2)]
 
-
-
-
         public void Challenge4DifferentSizeArrays(int[] numbersArray, int finalNumber)
         {
             //Arrange
@@ -72,6 +69,22 @@ namespace Lab03ChallengeTesting
 
             //Act
             int results = Challenge4(numbersArray);
+
+            //Assert
+            Assert.Equal(finalNumber, results);
+        }
+        [Theory]
+        [InlineData(new int[] {1, 50, 25, 30, -45}, 50)]
+        [InlineData(new int[] {5, 5, 5, 5, 5}, 5)]
+
+
+        public void Challenge5Tests(int[] numbersArray, int finalNumber)
+        {
+            //Arrange
+
+
+            //Act
+            int results = Challenge5(numbersArray);
 
             //Assert
             Assert.Equal(finalNumber, results);
