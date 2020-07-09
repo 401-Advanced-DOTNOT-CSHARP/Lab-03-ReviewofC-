@@ -91,10 +91,18 @@ namespace Lab_03_SystemIO
         }
         static void Challenge3()
         {
-            Console.WriteLine("   *");
-            Console.WriteLine("  ***");
+            Console.WriteLine("    *");
+            Console.WriteLine("   ***");
+            Console.WriteLine("  *****");
+            Console.WriteLine(" *******");
+            Console.WriteLine("*********");
+            Console.WriteLine(" *******");
+            Console.WriteLine("  *****");
+            Console.WriteLine("   ***");
+            Console.WriteLine("    *");
+
 
         }
-        
+
     }
 }
