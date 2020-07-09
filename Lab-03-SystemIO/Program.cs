@@ -17,6 +17,7 @@ namespace Lab_03_SystemIO
                 Challenge5(new int[] {10, 15, 5, -9, 30});
                 */
                 Challenge6();
+                Challenge7();
 
 
             }
@@ -28,7 +29,11 @@ namespace Lab_03_SystemIO
 
 
         }
-
+        /// <summary>
+        /// Multiplies 3 valid numbers;
+        /// </summary>
+        /// <param name="numbers">Numbers to e multiplied</param>
+        /// <returns></returns>
         public static int Challenge1(string numbers)
         {
             string[] numbersArray = numbers.Split(' ');
@@ -53,6 +58,9 @@ namespace Lab_03_SystemIO
             }
                 return product;
         }
+        /// <summary>
+        /// Takes a number from the user and prompts the user that many times based on that number and then gets an average of the numbers entered
+        /// </summary>
         public static void Challenge2Console()
         {
             Console.WriteLine("Please input a number betwwen 2 and 10");
@@ -87,6 +95,11 @@ namespace Lab_03_SystemIO
 
             }
         }
+        /// <summary>
+        /// Calculates an average from the array received
+        /// </summary>
+        /// <param name="numbers">is an array of numbers received by the user</param>
+        /// <returns></returns>
         public static decimal Challenge2(int[] numbers)
         {
             decimal total = 0;
@@ -96,6 +109,9 @@ namespace Lab_03_SystemIO
             }
             return total /= numbers.Length;
         }
+        /// <summary>
+        /// Is a diamond shape in the console by Console writeline
+        /// </summary>
         static void Challenge3()
         {
             Console.WriteLine("    *");
@@ -110,6 +126,11 @@ namespace Lab_03_SystemIO
 
 
         }
+        /// <summary>
+        /// receives an array of numbers and outputs the number that is repeated the most.
+        /// </summary>
+        /// <param name="numbersArray">is an array of numbers typically given from the user</param>
+        /// <returns></returns>
         public static int Challenge4(int[] numbersArray)
         {
             int count = 0;
@@ -136,6 +157,11 @@ namespace Lab_03_SystemIO
             }
             return leadNumber;
         }
+        /// <summary>
+        /// returns the largest number in an array
+        /// </summary>
+        /// <param name="numbersArray">is a list of numbers received from the user</param>
+        /// <returns></returns>
         public static int Challenge5(int[] numbersArray)
         {
             int largeNumber = numbersArray[0];
@@ -149,13 +175,40 @@ namespace Lab_03_SystemIO
             return largeNumber;
 
         }
+        /// <summary>
+        /// Creates a file if it doesn't exist and then adds/appends the word chosen by the user to the file
+        /// </summary>
         static void Challenge6()
         {
             Console.WriteLine("What word would you like to save?");
             string word = Console.ReadLine();
             string path = "../../Test.txt";
-            File.WriteAllText(path, word);
+            File.AppendAllText(path, word);
         }
-
+        /// <summary>
+        /// list all words in the file
+        /// </summary>
+        static void Challenge7()
+        {
+            string path = "../../Test.txt";
+            string[] allLines = File.ReadAllLines(path);
+            Console.WriteLine(String.Join('\n', allLines));
+        }
+        /// <summary>
+        /// receives a sentance from the user and then returns a sentance with the number of characters in each word
+        /// </summary>
+        static void Challenge9()
+        {
+            Console.WriteLine("Input a sentence");
+            string sentence = Console.ReadLine();
+            string[] sentenceArray = sentence.Split(" ");
+            string[] count = new string[sentenceArray.Length*2];
+            
+            for (int i = 0; i < sentenceArray.Length; i++)
+            { 
+                count[i] = $"{sentenceArray[i]} {sentenceArray[i].Length}";
+            }
+            Console.WriteLine(count);
+        }
     }
 }

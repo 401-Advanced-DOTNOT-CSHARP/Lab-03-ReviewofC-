@@ -10,7 +10,7 @@ Lab03-Unit-Testing
 
 ## Description
 
-
+9 Code Challenges that are new and old concepts that need to be tested.
 
 ---
 
@@ -35,19 +35,22 @@ Then select and open ```Lab02-Unit-Testing.sln```
 ### Visuals
 ***[Add screenshots of your application in action]***
 
-#### Application Start
-![Image 1](./start.jpg)
-#### Using the Application
-![Image 1](https://via.placeholder.com/750x500)
-#### Application End
-![Image 1](https://via.placeholder.com/750x500)
+#### Whiteboard
+![Image 1](./Whiteboard.jpeg)
+
 
 ---
 
 ### Change Log
 ***[The change log will list any changes made to the code base. This includes any changes from TA/Instructor feedback]***
-1.2: *Added some baseline code that will start the application and added the starter application image to the README.* - 7 July 2020  
-1.1: *Initial creation of program with only base code, README and gitignore files.* - 7 July 2020  
+1.9: *Challenge 9 incomplete* - 8 July 2020  
+1.7: *Challenge 7* - 8 July 2020  
+1.6: *Challenge 6* - 8 July 2020  
+1.5: *Challenge 5* - 8 July 2020  
+1.4: *Challenge 4* - 8 July 2020  
+1.3: *Challenge 3* - 8 July 2020  
+1.2: *Challenge 2* - 8 July 2020  
+1.1: *Challenge 1* - 8 July 2020  
 
 
 ------------------------------
