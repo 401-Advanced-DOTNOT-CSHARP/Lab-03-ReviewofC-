@@ -9,17 +9,17 @@ namespace Lab_03_SystemIO
         {
             try
             {
-                /*
-            Challenge1("1 2 3");
-            Challenge2Console();
-               Challenge3();
-                Challenge4(new int[] {1, 1, 2, 3, 4, 2, 3, 2});
-                Challenge5(new int[] {10, 15, 5, -9, 30});
-                */
-                //Challenge6();
-                //Challenge7();
+                Challenge1("1 2 3");
+                Challenge2Console();
+                Challenge3();
+                Challenge4(new int[] { 1, 1, 2, 3, 4, 2, 3, 2 });
+                Challenge5(new int[] { 10, 15, 5, -9, 30 });
+                Challenge6();
+                Challenge7();
+                Console.WriteLine("Input a sentence");
+                string sentence = Console.ReadLine();
                 Challenge8();
-                //Challenge9();
+                Console.WriteLine(Challenge9(sentence));
 
             }
             catch (Exception e)
@@ -39,7 +39,7 @@ namespace Lab_03_SystemIO
         {
             string[] numbersArray = numbers.Split(' ');
 
-            if(numbersArray.Length < 3)
+            if (numbersArray.Length < 3)
             {
                 return 0;
             }
@@ -48,16 +48,17 @@ namespace Lab_03_SystemIO
 
             for (int i = 0; i < 3; i++)
             {
-                if(int.TryParse(numbersArray[i], out int result)){
+                if (int.TryParse(numbersArray[i], out int result))
+                {
 
-                product *= result;
+                    product *= result;
                 }
                 else
                 {
                     product *= 1;
                 }
             }
-                return product;
+            return product;
         }
         /// <summary>
         /// Takes a number from the user and prompts the user that many times based on that number and then gets an average of the numbers entered
@@ -66,33 +67,34 @@ namespace Lab_03_SystemIO
         {
             Console.WriteLine("Please input a number betwwen 2 and 10");
             string userNumbers = Console.ReadLine();
-            if(!int.TryParse(userNumbers, out int result))
+            if (!int.TryParse(userNumbers, out int result))
             {
                 throw new Exception("You did not enter a number, try again");
 
-            }else if (result < 2 || result > 10)
+            }
+            else if (result < 2 || result > 10)
             {
                 throw new Exception("you either entered a number below 2 or higher than 10, try again");
             }
             else
             {
-            int[] numbersArray = new int[result];
-            for (int i = 0; i < result; i++)
-            {
-                Console.WriteLine($"Please enter a number {i+1}/{result}");
-                string newNumber = Console.ReadLine();
-                    if(int.TryParse(newNumber, out int results))
+                int[] numbersArray = new int[result];
+                for (int i = 0; i < result; i++)
+                {
+                    Console.WriteLine($"Please enter a number {i + 1}/{result}");
+                    string newNumber = Console.ReadLine();
+                    if (int.TryParse(newNumber, out int results))
                     {
-                numbersArray[i] = results;
+                        numbersArray[i] = results;
 
                     }
                     else
                     {
                         throw new Exception("Invalid number, try again");
                     }
-            }
-            decimal average = Challenge2(numbersArray);
-            Console.WriteLine($"Your average is {average}");
+                }
+                decimal average = Challenge2(numbersArray);
+                Console.WriteLine($"Your average is {average}");
 
             }
         }
@@ -144,13 +146,13 @@ namespace Lab_03_SystemIO
                 for (int j = 0; j < numbersArray.Length; j++)
                 {
 
-                if(numbersArray[i] == numbersArray[j])
-                {
-                    count += 1;
-                    numberCounted = numbersArray[i];
+                    if (numbersArray[i] == numbersArray[j])
+                    {
+                        count += 1;
+                        numberCounted = numbersArray[i];
+                    }
                 }
-                }
-                if(leadCount < count)
+                if (leadCount < count)
                 {
                     leadNumber = numberCounted;
                     leadCount = count;
@@ -168,7 +170,7 @@ namespace Lab_03_SystemIO
             int largeNumber = numbersArray[0];
             for (int i = 0; i < numbersArray.Length; i++)
             {
-                if(numbersArray[i] > largeNumber)
+                if (numbersArray[i] > largeNumber)
                 {
                     largeNumber = numbersArray[i];
                 }
@@ -206,41 +208,41 @@ namespace Lab_03_SystemIO
             string deleteWord = Console.ReadLine();
             string[] readText = File.ReadAllLines(path);
             string[] writeText = new string[readText.Length - 1];
+            int counter = 0;
             for (int i = 0; i < readText.Length; i++)
             {
-                if(readText[i] != deleteWord)
+                if (readText[i] != deleteWord)
                 {
-                    writeText[i] = readText[i];
+                    writeText[counter] = readText[i];
+                    counter++;
                 }
             }
-                File.WriteAllLines(newPath, writeText);
+            File.WriteAllLines(newPath, writeText);
             File.Delete(path);
             File.Move(newPath, path);
         }
         /// <summary>
         /// receives a sentance from the user and then returns a sentance with the number of characters in each word
         /// </summary>
-        static void Challenge9()
+        public static string[] Challenge9(string sentence)
         {
-            Console.WriteLine("Input a sentence");
-            string sentence = Console.ReadLine();
+
             string[] sentenceArray = sentence.Split(" ");
-            string[] count = new string[sentenceArray.Length*2];
-            string finalSentence = "";
+            string[] count = new string[sentenceArray.Length];
             for (int i = 0; i < sentenceArray.Length; i++)
-            { 
-                if(sentenceArray.Length-1 == i)
+            {
+                if (sentenceArray.Length - 1 == i)
                 {
-                    finalSentence += $"{sentenceArray[i]}: {sentenceArray[i].Length}";
+                    count[i] += $"{sentenceArray[i]}: {sentenceArray[i].Length}";
 
                 }
                 else
                 {
-                    finalSentence += $"{sentenceArray[i]}: {sentenceArray[i].Length}, ";
+                    count[i] += $"{sentenceArray[i]}: {sentenceArray[i].Length},";
 
                 }
             }
-            Console.WriteLine(finalSentence);
+            return count;
         }
     }
 }
