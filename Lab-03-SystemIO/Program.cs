@@ -16,9 +16,10 @@ namespace Lab_03_SystemIO
                 Challenge4(new int[] {1, 1, 2, 3, 4, 2, 3, 2});
                 Challenge5(new int[] {10, 15, 5, -9, 30});
                 */
-                Challenge6();
-                Challenge7();
-
+                //Challenge6();
+                //Challenge7();
+                Challenge8();
+                //Challenge9();
 
             }
             catch (Exception e)
@@ -32,8 +33,8 @@ namespace Lab_03_SystemIO
         /// <summary>
         /// Multiplies 3 valid numbers;
         /// </summary>
-        /// <param name="numbers">Numbers to e multiplied</param>
-        /// <returns></returns>
+        /// <param name="numbers">Numbers to be multiplied</param>
+        /// <returnsProduct of the numbers></returns>
         public static int Challenge1(string numbers)
         {
             string[] numbersArray = numbers.Split(' ');
@@ -99,7 +100,7 @@ namespace Lab_03_SystemIO
         /// Calculates an average from the array received
         /// </summary>
         /// <param name="numbers">is an array of numbers received by the user</param>
-        /// <returns></returns>
+        /// <returns>Average of numbers inputted</returns>
         public static decimal Challenge2(int[] numbers)
         {
             decimal total = 0;
@@ -130,7 +131,7 @@ namespace Lab_03_SystemIO
         /// receives an array of numbers and outputs the number that is repeated the most.
         /// </summary>
         /// <param name="numbersArray">is an array of numbers typically given from the user</param>
-        /// <returns></returns>
+        /// <returns>Most repeated number in the array</returns>
         public static int Challenge4(int[] numbersArray)
         {
             int count = 0;
@@ -161,7 +162,7 @@ namespace Lab_03_SystemIO
         /// returns the largest number in an array
         /// </summary>
         /// <param name="numbersArray">is a list of numbers received from the user</param>
-        /// <returns></returns>
+        /// <returns>Highest number in array</returns>
         public static int Challenge5(int[] numbersArray)
         {
             int largeNumber = numbersArray[0];
@@ -181,9 +182,11 @@ namespace Lab_03_SystemIO
         static void Challenge6()
         {
             Console.WriteLine("What word would you like to save?");
-            string word = Console.ReadLine();
+            string[] word = new string[1];
+            string words = Console.ReadLine();
+            word[0] = words;
             string path = "../../Test.txt";
-            File.AppendAllText(path, word);
+            File.AppendAllLines(path, word);
         }
         /// <summary>
         /// list all words in the file
@@ -194,6 +197,26 @@ namespace Lab_03_SystemIO
             string[] allLines = File.ReadAllLines(path);
             Console.WriteLine(String.Join('\n', allLines));
         }
+        static void Challenge8()
+        {
+            string path = "../../Test.txt";
+            string newPath = "../../temp.txt";
+
+            Console.WriteLine("Word to be removed from file?");
+            string deleteWord = Console.ReadLine();
+            string[] readText = File.ReadAllLines(path);
+            string[] writeText = new string[readText.Length - 1];
+            for (int i = 0; i < readText.Length; i++)
+            {
+                if(readText[i] != deleteWord)
+                {
+                    writeText[i] = readText[i];
+                }
+            }
+                File.WriteAllLines(newPath, writeText);
+            File.Delete(path);
+            File.Move(newPath, path);
+        }
         /// <summary>
         /// receives a sentance from the user and then returns a sentance with the number of characters in each word
         /// </summary>
@@ -203,12 +226,21 @@ namespace Lab_03_SystemIO
             string sentence = Console.ReadLine();
             string[] sentenceArray = sentence.Split(" ");
             string[] count = new string[sentenceArray.Length*2];
-            
+            string finalSentence = "";
             for (int i = 0; i < sentenceArray.Length; i++)
             { 
-                count[i] = $"{sentenceArray[i]} {sentenceArray[i].Length}";
+                if(sentenceArray.Length-1 == i)
+                {
+                    finalSentence += $"{sentenceArray[i]}: {sentenceArray[i].Length}";
+
+                }
+                else
+                {
+                    finalSentence += $"{sentenceArray[i]}: {sentenceArray[i].Length}, ";
+
+                }
             }
-            Console.WriteLine(count);
+            Console.WriteLine(finalSentence);
         }
     }
 }
