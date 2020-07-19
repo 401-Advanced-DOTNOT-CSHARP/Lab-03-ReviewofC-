@@ -8,18 +8,28 @@ namespace Lab_03_SystemIO
         static void Main(string[] args)
         {
             try
-            {
+            {/*
                 Challenge1("1 2 3");
                 Challenge2Console();
                 Challenge3();
                 Challenge4(new int[] { 1, 1, 2, 3, 4, 2, 3, 2 });
                 Challenge5(new int[] { 10, 15, 5, -9, 30 });
+                */
+                /*
                 Challenge6();
                 Challenge7();
+                Challenge8();
+                */
                 Console.WriteLine("Input a sentence");
                 string sentence = Console.ReadLine();
-                Challenge8();
-                Console.WriteLine(Challenge9(sentence));
+                string[] sentences = Challenge9(sentence);
+                    string output = "";
+                for (int i = 0; i < sentences.Length; i++)
+                {
+                    output += sentences[i];
+
+                }
+                Console.WriteLine(output);
 
             }
             catch (Exception e)
@@ -34,7 +44,7 @@ namespace Lab_03_SystemIO
         /// Multiplies 3 valid numbers;
         /// </summary>
         /// <param name="numbers">Numbers to be multiplied</param>
-        /// <returnsProduct of the numbers></returns>
+        /// <returns>Product of the numbers></returns>
         public static int Challenge1(string numbers)
         {
             string[] numbersArray = numbers.Split(' ');
@@ -224,6 +234,8 @@ namespace Lab_03_SystemIO
         /// <summary>
         /// receives a sentance from the user and then returns a sentance with the number of characters in each word
         /// </summary>
+        /// <param name="sentence">A string of a sentence given from the user</param>
+        /// <returns>Reurns the new array with each word and length of the words</returns>
         public static string[] Challenge9(string sentence)
         {
 
@@ -233,12 +245,12 @@ namespace Lab_03_SystemIO
             {
                 if (sentenceArray.Length - 1 == i)
                 {
-                    count[i] += $"{sentenceArray[i]}: {sentenceArray[i].Length}";
+                    count[i] += $" {sentenceArray[i]}: {sentenceArray[i].Length}";
 
                 }
                 else
                 {
-                    count[i] += $"{sentenceArray[i]}: {sentenceArray[i].Length},";
+                    count[i] += $" {sentenceArray[i]}: {sentenceArray[i].Length},";
 
                 }
             }

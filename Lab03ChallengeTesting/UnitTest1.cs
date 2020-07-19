@@ -97,10 +97,10 @@ namespace Lab03ChallengeTesting
         public void Challenge9ReturnsCorrectArray()
         {
             string[] correct = new string[]{
-            "The: 3,",
-            "World: 5,",
-            "Is: 2,",
-            "Round: 5" 
+            " The: 3,",
+            " World: 5,",
+            " Is: 2,",
+            " Round: 5" 
             };
 
             string[] answer = Challenge9("The World Is Round");
@@ -112,10 +112,10 @@ namespace Lab03ChallengeTesting
         public void Challenge9ReturnsArray()
         {
             string[] correct = new string[]{
-            "The: 3,",
-            "World: 5,",
-            "Is: 2,",
-            "Round: 5"
+            " The: 3,",
+            " World: 5,",
+            " Is: 2,",
+            " Round: 5"
             };
 
 
